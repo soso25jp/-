@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRIEU VAN SANG | Delivery Leadership Profile</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #162033;
+      --muted: #5d6b82;
+      --line: #d9e1ee;
+      --strong: #0f4c81;
+      --accent: #1662c4;
+      --soft: #eaf2ff;
+      --ok: #0f766e;
+      --tag: #eef4ff;
+      --shadow: 0 10px 30px rgba(20, 40, 90, 0.08);
+      --radius: 18px;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", "Noto Sans JP", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef3fb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(245,247,251,0.82);
+      border-bottom: 1px solid rgba(217,225,238,0.9);
+    }
+    .topbar-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 14px 0;
+    }
+    .brand { font-weight: 800; letter-spacing: 0.03em; }
+    .nav { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; }
+    .nav a { color: var(--muted); }
+    .hero { padding: 52px 0 28px; }
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 28px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--strong);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    h1 { margin: 0 0 8px; font-size: 40px; line-height: 1.12; }
+    .subtitle { font-size: 20px; color: var(--strong); font-weight: 700; margin-bottom: 18px; }
+    .lead { font-size: 15px; color: var(--muted); margin: 0 0 18px; }
+    .meta, .chip-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip, .tag {
+      display: inline-flex; align-items: center;
+      border-radius: 999px; padding: 8px 12px;
+      background: var(--tag); color: var(--strong); font-size: 13px; font-weight: 700;
+      border: 1px solid #d7e4ff;
+    }
+    .aside {
+      display: grid; gap: 14px;
+      align-content: start;
+    }
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      padding: 18px;
+    }
+    .mini-card h3 { margin: 0 0 10px; font-size: 15px; }
+    .mini-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    section { padding: 18px 0 14px; }
+    .section-title {
+      font-size: 26px; margin: 0 0 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub { color: var(--muted); margin: -8px 0 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 17px; }
+    .card p { margin: 0; color: var(--muted); }
+    .summary {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+    .summary p { margin: 0 0 14px; }
+    .summary p:last-child { margin-bottom: 0; }
+    .skill-group { display: grid; gap: 10px; }
+    .skill-group h4 { margin: 0; font-size: 15px; color: var(--strong); }
+    ul.clean { margin: 0; padding-left: 18px; color: var(--muted); }
+    ul.clean li { margin: 5px 0; }
+    .timeline { display: grid; gap: 14px; }
+    .timeline-item {
+      position: relative;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .timeline-item .when {
+      font-size: 13px; font-weight: 800; color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+    .timeline-item h3 { margin: 6px 0 6px; font-size: 20px; }
+    .timeline-item .role { color: var(--strong); font-weight: 700; margin-bottom: 8px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .project summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 22px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-weight: 800; font-size: 17px;
+    }
+    .project summary::-webkit-details-marker { display: none; }
+    .project[open] summary { border-bottom: 1px solid var(--line); background: #fbfcff; }
+    .project-body { padding: 20px 22px 22px; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .project-body p { margin: 0 0 12px; color: var(--muted); }
+    .project-body ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .project-body li { margin: 7px 0; }
+    .cert-list, .edu-list { display: grid; gap: 12px; }
+    .row {
+      display: grid; grid-template-columns: 100px 1fr; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--line);
+    }
+    .row:last-child { border-bottom: 0; }
+    .row .year { font-weight: 800; color: var(--accent); }
+    .footer {
+      padding: 28px 0 60px; color: var(--muted); font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      .hero-card, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      h1 { font-size: 32px; }
+      .subtitle { font-size: 18px; }
+      .row { grid-template-columns: 1fr; gap: 6px; }
+    }
+    @media print {
+      .topbar { position: static; }
+      body { background: #fff; }
+      .card, .hero-card, .summary, .timeline-item, .project { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">TRIEU VAN SANG</div>
+      <nav class="nav">
+        <a href="#summary">概要</a>
+        <a href="#strengths">強み</a>
+        <a href="#skills">スキル</a>
+        <a href="#career">経歴</a>
+        <a href="#projects">プロジェクト</a>
+        <a href="#certs">資格</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div>
+          <div class="eyebrow">Professional Profile</div>
+          <h1>TRIEU VAN SANG</h1>
+          <div class="subtitle">Project Delivery Leadership, Client Communication, and Offshore Execution for Japan-market Systems</div>
+          <p class="lead">
+            日本向けオフショア開発において、Developer、BrSE、PMとして10年以上の実務経験を有するITプロフェッショナル。
+            要件定義、顧客折衝、QCD管理、オフショアチームマネジメントを一気通貫で推進し、
+            大規模・高難度案件における安定したデリバリーに強みを持つ。
+          </p>
+          <div class="meta">
+            <span class="chip">経験年数: 10+ years</span>
+            <span class="chip">日本語: JLPT N2+</span>
+            <span class="chip">英語: Intermediate</span>
+            <span class="chip">拠点: Ha Noi, Vietnam</span>
+            <span class="chip">Email: tvsang.vp@gmail.com</span>
+          </div>
+        </div>
+        <div class="aside">
+          <div class="mini-card">
+            <h3>Core Value</h3>
+            <p>顧客要求の整理から、体制構築、品質管理、変更管理、デリバリー統制までを実務レベルでリードできるPM / BrSE人材。</p>
+          </div>
+          <div class="mini-card">
+            <h3>Primary Domains</h3>
+            <p>Retail POS / Fintech / Customer Account Management / Telecom Portal / Healthcare Supply Chain</p>
+          </div>
+          <div class="mini-card">
+            <h3>Professional Focus</h3>
+            <p>上流工程、顧客折衝、オフショア開発統制を軸に、複雑性の高い案件で安定したプロジェクト推進に貢献。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="strengths">
+      <h2 class="section-title">強み</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>上流工程と顧客折衝</h3>
+          <p>要件定義、仕様調整、課題整理、変更要求対応を通じて、日本側顧客と開発チーム間の認識差異を抑制。</p>
+        </div>
+        <div class="card">
+          <h3>オフショア開発統制</h3>
+          <p>オンサイト・オフショア混成体制で進捗、品質、リスク、コストを可視化し、安定したデリバリーを実現。</p>
+        </div>
+        <div class="card">
+          <h3>QCD最適化</h3>
+          <p>レビュー強化、課題管理、報告運営、プロセス整備を通じて、手戻り抑制と生産性向上を継続的に推進。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary">
+      <h2 class="section-title">職務要約</h2>
+      <div class="summary">
+        <p>
+          IT業界において10年以上の実務経験を有し、日本向けオフショア開発にてDeveloper、BrSE、PMとして一貫して従事してきました。
+          要件定義、顧客折衝、進捗／品質／コスト管理、オフショアチームマネジメントを強みとし、ウォーターフォール・アジャイル双方の開発モデルでプロジェクトを推進してきました。
+        </p>
+        <p>
+          特に、PM／BrSEとして日本側顧客とベトナム開発拠点の橋渡しを担い、要件整理、課題・変更管理、品質改善、リスクコントロールを通じて、安定したデリバリーを実現してきました。
+          小規模案件から大規模案件まで、複数業界の業務システム開発においてQCD最適化とチーム生産性向上に貢献してきたことが強みです。
+        </p>
+        <p>
+          今後は、より大規模かつ複雑性の高い案件において、プロジェクト推進、顧客価値最大化、開発体制の高度化に継続して貢献したいと考えています。
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">コアスキル</h2>
+      <p class="section-sub">Recruiterに伝わりやすい形で、管理・上流・技術を分けて整理。</p>
+      <div class="grid-2">
+        <div class="card skill-group">
+          <h4>Management / Delivery</h4>
+          <div class="chip-list">
+            <span class="tag">Project Management</span>
+            <span class="tag">Offshore Team Management</span>
+            <span class="tag">QCD Control</span>
+            <span class="tag">Risk / Issue / Change Management</span>
+            <span class="tag">Agile Scrum / Waterfall</span>
+            <span class="tag">Stakeholder Reporting</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h4>Upstream / Communication</h4>
+          <div class="chip-list">
+            <span class="tag">Requirement Definition</span>
+            <span class="tag">Customer Negotiation</span>
+            <span class="tag">Specification Coordination</span>
+            <span class="tag">Bridge SE</span>
+            <span class="tag">Vendor Control</span>
+            <span class="tag">Review Planning</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h4>Technical Stack</h4>
+          <div class="chip-list">
+            <span class="tag">C# / .NET / .NET Core</span>
+            <span class="tag">Java / Spring Boot</span>
+            <span class="tag">C++</span>
+            <span class="tag">JavaScript / TypeScript</span>
+            <span class="tag">ReactJS / Vue.js / React Native</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h4>Platform / Tools</h4>
+          <div class="chip-list">
+            <span class="tag">AWS / Azure / GCP</span>
+            <span class="tag">SQL Server / PostgreSQL / MySQL / Redis / DynamoDB</span>
+            <span class="tag">Jira / Backlog / Redmine / Confluence</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">SonarQube</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2 class="section-title">キャリアハイライト</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="when">2015.01 – 2017.05</div>
+          <h3>FPT Software Vietnam</h3>
+          <div class="role">Developer</div>
+          <p>開発エンジニアとして、設計、実装、単体試験を中心に経験を積み、後のBrSE / PMとしての基礎となる技術・品質感覚を習得。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="when">2018.01 – 2020.01</div>
+          <h3>MySoft Inc. (Japan)</h3>
+          <div class="role">Software Engineer</div>
+          <p>会員管理、電子契約、ワークフローなど業務システム開発に従事。API設計、クラウド型システム設計、試験計画など上流寄りの経験を拡大。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="when">2020.02 – 2021.07</div>
+          <h3>My SoftBank (Japan)</h3>
+          <div class="role">Leader / BrSE</div>
+          <p>顧客向けポータル開発・運用保守案件にて、要求調整、顧客対応、チーム推進を担当。週次報告と品質可視化を通じて安定運営を支援。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="when">2021.08 – 2022.12</div>
+          <h3>Coincheck-related Assignment / Fintech Delivery</h3>
+          <div class="role">BrSE / Sub PM</div>
+          <p>暗号資産取引プラットフォーム領域で、顧客要件整理、バックログ運営、設計レビュー、品質保証を担当。Fintech案件でのQCD統制経験を蓄積。</p>
+        </div>
+        <div class="timeline-item">
+          <div class="when">2022.01 – Present</div>
+          <h3>FPT Software Vietnam</h3>
+          <div class="role">BrSE / PM</div>
+          <p>POS、音声認識、マルチプラットフォーム、顧客アカウント管理など複数案件でPM / BrSEとして活動。大規模体制から混成20名体制まで幅広くリード。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">主要プロジェクト</h2>
+      <p class="section-sub">最新案件は詳細を強化し、他案件はPM / BrSEとしての価値が伝わる粒度に整理。</p>
+
+      <details class="project" open>
+        <summary>
+          <span>10. 顧客アカウント管理システム（Customer Account Management System）</span>
+          <span>2025.06 – Present</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM</span>
+            <span class="chip">Team: 20名（Onsite Japan / Offshore Vietnam）</span>
+            <span class="chip">Tech: C#, .NET/.NET Core, Web API, RESTful API, SQL Server</span>
+          </div>
+          <p>
+            顧客アカウントの登録、認証、権限管理を中核とする基幹システム開発。PMとして、計画立案、体制構築、要件定義、IF整理、変更要求管理、進捗／品質／リスク／コスト管理、定例報告、プロセス改善を担当。
+            特に、認証・認可領域におけるセキュリティ要求を重視した品質統制を推進。
+          </p>
+          <ul>
+            <li>日本側顧客との要件定義セッションを主導し、アカウント登録、認証、権限管理、パスワードポリシー、監査ログなどの主要要件を整理。</li>
+            <li>複数サブシステムとのIF一覧を作成し、API仕様、項目マッピング、エラー時ハンドリング方針を明確化し、関連チーム間の認識を統一。</li>
+            <li>変更要求（CR）について、影響範囲、優先度、工数を整理した上で顧客合意を取得し、開発計画へ反映。</li>
+            <li>オフショア開発チームに対して、仕様説明、タスク分解、課題管理、レビュー観点共有を行い、認識齟齬と手戻りを抑制。</li>
+            <li>週次定例にて進捗、品質、リスク、課題、意思決定待ち事項を可視化し、遅延兆候の早期検知と是正対応を実施。</li>
+            <li>ログイン失敗回数、アカウントロック、権限変更、パスワード再発行など重要シナリオを重点管理し、認証系の品質リスク低減に貢献。</li>
+            <li>課題管理ルール、CR管理フロー、定例報告フォーマットを標準化し、プロジェクト運営の再現性を向上。</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>9. マルチプラットフォーム開発案件群</span>
+          <span>2024.11 – 2025.08</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM</span>
+            <span class="chip">Team: 18名</span>
+            <span class="chip">Tech: ReactJS, Python, React Native, Kotlin, SQL, DynamoDB</span>
+          </div>
+          <p>日本向けマルチプラットフォーム開発をPMとして推進。複数業界の業務システム案件で、アジャイル／スクラム運営、QCD管理、チームマネジメントを担当。</p>
+          <ul>
+            <li>複数案件横断で優先度とリソース配分を調整し、並行開発における進捗コントロールを実施。</li>
+            <li>課題・リスク・品質状況を定例で可視化し、顧客との意思決定スピード向上を支援。</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>8. 音声認識システム開発・クラウド運用</span>
+          <span>2024.06 – 2024.12</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM / BrSE</span>
+            <span class="chip">Team: 10名</span>
+            <span class="chip">Tech: AWS, Azure, GCP, NLP, TTS, ReactJS, Python</span>
+          </div>
+          <p>音声認識システム開発とクラウド運用案件。アーキ構成、クラウド選定、音声認識/NLP/TTS実装方針の整理とチーム推進を担当。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>7. POS開発（セブン-イレブン関連案件）</span>
+          <span>2023.02 – 2024.10</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM / BrSE</span>
+            <span class="chip">Team: 15名</span>
+            <span class="chip">Tech: C++, Java, SQLite3</span>
+          </div>
+          <p>スーパー／レストラン／小売向けPOS開発案件。要求確認、見積、週次報告、進捗・品質・リスク・コスト管理を担当。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>6. 新POS開発（コンビニ向け）</span>
+          <span>2022.04 – 2023.04</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: BrSE / PL</span>
+            <span class="chip">Team: 155名</span>
+            <span class="chip">Tech: C++, C#, Unity, SQL Server</span>
+          </div>
+          <p>大規模POS刷新案件にて、C++からC#への移行、要求合意、体制計画、設計／テスト計画レビュー、QA方針整備、納品物整理を担当。大人数体制での調整・統制経験を蓄積。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>5. 医療用サプライチェーン管理システム「HOPE SX-S」</span>
+          <span>2021.10 – 2022.03</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: Sub Leader / BrSE</span>
+            <span class="chip">Team: 16名</span>
+            <span class="chip">Tech: Node.js, .NET Core, ReactJS, TypeScript, PostgreSQL, Redis</span>
+          </div>
+          <p>病院向けに薬品・医療機器の在庫、使用履歴、発注、配送、期限切れアラートを統合管理するシステム。工程別チケット管理と週次レビューを通じて品質・進捗を支援。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>4. 暗号資産取引プラットフォーム開発</span>
+          <span>2021.08 – 2021.12</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: BrSE / Sub PM</span>
+            <span class="chip">Team: 20名</span>
+            <span class="chip">Domain: Fintech</span>
+          </div>
+          <p>FX取引と暗号資産取引を統合したWebプラットフォームを新規開発。KYC/AML、入出金、ウォレット、管理ダッシュボード領域で顧客要件整理、設計レビュー、品質保証を担当。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>3. My SoftBank ポータルサイト開発・運用保守</span>
+          <span>2020.02 – 2021.07</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: Leader / BrSE</span>
+            <span class="chip">Team: 15名</span>
+            <span class="chip">Tech: Java, Spring Boot, Vue.js, TypeScript, Oracle, Redis</span>
+          </div>
+          <p>契約情報、料金、サービスオプションを管理する顧客ポータル案件。日本側顧客との要件調整、課題管理、週次報告、品質可視化を通じて継続的な運用改善を推進。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>2. 電子契約・文書ワークフロー管理クラウドサービス</span>
+          <span>2018.11 – 2019.12</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM / PL / Sub Lead</span>
+            <span class="chip">Team: 15名</span>
+            <span class="chip">Tech: Python, FastAPI, Vue.js, PostgreSQL</span>
+          </div>
+          <p>中小企業・自治体向けのクラウド電子契約システム。クラウド設計、API仕様設計、UT/IT計画策定、実装を担当し、CI/CDと品質ゲートによる運営に参画。</p>
+        </div>
+      </details>
+
+      <details class="project">
+        <summary>
+          <span>1. ショッピングモール向けポイント・会員管理システム</span>
+          <span>2018.01 – 2018.11</span>
+        </summary>
+        <div class="project-body">
+          <div class="project-meta">
+            <span class="chip">Role: PM / PL / BrSE</span>
+            <span class="chip">Team: 3名</span>
+            <span class="chip">Tech: Java, Vue.js, Node.js, PostgreSQL, MySQL</span>
+          </div>
+          <p>共通ポイント・会員カードの統合管理システム。要件整理、API仕様書作成、結合試験リード、ベンダーコントロールを担当。</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h2 class="section-title" style="font-size:22px; margin-bottom: 10px;">学歴</h2>
+          <div class="edu-list">
+            <div class="row">
+              <div class="year">2017</div>
+              <div>
+                <strong>FPT University</strong><br />
+                情報処理技術学部
+              </div>
+            </div>
+            <div class="row">
+              <div class="year">2018</div>
+              <div>
+                <strong>岩谷学園テクノビジネス専門学校</strong><br />
+                日本語研究科
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="certs">
+          <h2 class="section-title" style="font-size:22px; margin-bottom: 10px;">資格・認定</h2>
+          <div class="cert-list">
+            <div class="row"><div class="year">2020</div><div>JLPT N2</div></div>
+            <div class="row"><div class="year">2023</div><div>Professional Scrum Master I (PSM I)</div></div>
+            <div class="row"><div class="year">2023</div><div>AWS Certified Cloud Practitioner</div></div>
+            <div class="row"><div class="year">2024</div><div>Project Management Professional (PMP)</div></div>
+            <div class="row"><div class="year">2024</div><div>AWS Certified Solutions Architect – Associate</div></div>
+            <div class="row"><div class="year">2025</div><div>Professional Scrum Master II (PSM II)</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">活かせるポイント</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>日本顧客対応</h3>
+          <p>要求ヒアリング、仕様確認、課題整理、週次報告、変更要求対応を日本語で実務遂行可能。</p>
+        </div>
+        <div class="card">
+          <h3>大規模案件対応</h3>
+          <p>155名体制のPOS刷新案件を含む、大規模・複雑案件での統制経験を保有。</p>
+        </div>
+        <div class="card">
+          <h3>技術と管理の両立</h3>
+          <p>PM / BrSEとして管理だけでなく、API、認証、DB、クラウドなど技術論点の会話にも対応。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      
+    </div>
+  </footer>
+</body>
+</html>
